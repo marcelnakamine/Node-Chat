@@ -3,10 +3,13 @@ const app = express();
 const routes = require('./routes');
 const errorHandlers = require('./middleware/errorhandlers');
 const log = require('./middleware/log');
+const partials = require('express-partials');
 
 const port = 3000;
 
 app.set('view engine', 'ejs');
+app.set('view options', {defaultLayout: 'layout'});
+app.use(partials());
 app.use(log.logger);
 app.use(express.static(__dirname + '/static'));
 app.get('/', routes.index);
