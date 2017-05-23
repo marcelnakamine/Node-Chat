@@ -6,6 +6,7 @@ const log = require('./middleware/log');
 
 const port = 3000;
 
+app.set('view engine', 'ejs');
 app.use(log.logger);
 app.use(express.static(__dirname + '/static'));
 app.get('/', routes.index);
