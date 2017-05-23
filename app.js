@@ -5,11 +5,12 @@ const errorHandlers = require('./middleware/errorhandlers');
 
 const port = 3000;
 
-app.use(errorHandlers.notFound);
 app.get('/', routes.index);
 app.get('/login', routes.login);
 app.post('/login', routes.loginProcess);
 app.get('/chat', routes.chat);
+
+app.use(errorHandlers.notFound);
 
 app.listen(process.env.PORT || port);
 console.log(`App server running on port ${port}`);
