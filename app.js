@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 const routes = require('./routes');
 const errorHandlers = require('./middleware/errorhandlers');
+const log = require('./middleware/log');
 
 const port = 3000;
+
+app.use(log.logger);
 
 app.get('/', routes.index);
 app.get('/login', routes.login);
