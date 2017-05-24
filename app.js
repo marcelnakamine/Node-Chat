@@ -6,6 +6,7 @@ const log = require('./middleware/log');
 const partials = require('express-partials');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
 
 const port = 3000;
 
@@ -14,11 +15,14 @@ app.set('view options', {defaultLayout: 'layout'});
 app.use(partials());
 app.use(log.logger);
 app.use(express.static(__dirname + '/static'));
-app.use(cookieParser());
+app.use(cookieParser('wS|O*8%kFUs{C>5*v>qP9*6!D8R;hw]7N}sO]xEZ"J>Z*my^?/X.!?5}VFRX'));
 app.use(session({
   secret: 'wS|O*8%kFUs{C>5*v>qP9*6!D8R;hw]7N}sO]xEZ"J>Z*my^?/X.!?5}VFRX',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new RedisStore(
+    {url: 'redis://localhost'}
+  )
 }));
 // app.use(function(req, res, next){
 //   if(req.session.pageCount)

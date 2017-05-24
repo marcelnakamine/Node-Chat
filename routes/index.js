@@ -9,7 +9,8 @@ function index(req, res){
   res.render('index', {
     title: 'Index Dynamic',
     cookie: JSON.stringify(req.cookies),
-    session: JSON.stringify(req.session)
+    session: JSON.stringify(req.session),
+    signedCookie: JSON.stringify(req.signedCookies)
   });
 };
 

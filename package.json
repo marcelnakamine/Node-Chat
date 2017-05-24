@@ -8,12 +8,12 @@
   },
   "dependencies": {
     "connect-flash": "0.1.1",
-    "connect-redis": "1.4.7",
+    "connect-redis": "^3.3.0",
     "cookie-parser": "^1.4.3",
     "ejs": "0.8.5",
     "express": "4.6.1",
     "express-partials": "0.2.0",
     "express-session": "^1.15.3",
-    "redis": "0.10.1"
+    "redis": "^2.7.1"
   }
 }
