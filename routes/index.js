@@ -4,6 +4,8 @@ module.exports.loginProcess = loginProcess;
 module.exports.chat = chat;
 
 function index(req, res){
+  res.cookie('IndexCookie', 'This was set from Index');
+  // res.clearCookie('IndexCookie'); // To clear a specific cookie
   res.render('index', {title: 'Index Dynamic', cookie: JSON.stringify(req.cookies)});
 };
 
