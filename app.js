@@ -15,7 +15,11 @@ app.use(partials());
 app.use(log.logger);
 app.use(express.static(__dirname + '/static'));
 app.use(cookieParser());
-app.use(session({secret: 'wS|O*8%kFUs{C>5*v>qP9*6!D8R;hw]7N}sO]xEZ"J>Z*my^?/X.!?5}VFRX'}));
+app.use(session({
+  secret: 'wS|O*8%kFUs{C>5*v>qP9*6!D8R;hw]7N}sO]xEZ"J>Z*my^?/X.!?5}VFRX',
+  resave: true,
+  saveUninitialized: true
+}));
 // app.use(function(req, res, next){
 //   if(req.session.pageCount)
 //     req.session.pageCount++;
