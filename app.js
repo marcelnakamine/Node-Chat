@@ -5,6 +5,7 @@ const errorHandlers = require('./middleware/errorhandlers');
 const log = require('./middleware/log');
 const partials = require('express-partials');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 const port = 3000;
 
@@ -14,6 +15,7 @@ app.use(partials());
 app.use(log.logger);
 app.use(express.static(__dirname + '/static'));
 app.use(cookieParser());
+app.use(session({secret: 'wS|O*8%kFUs{C>5*v>qP9*6!D8R;hw]7N}sO]xEZ"J>Z*my^?/X.!?5}VFRX'}));
 app.get('/', routes.index);
 app.get('/login', routes.login);
 app.post('/login', routes.loginProcess);
